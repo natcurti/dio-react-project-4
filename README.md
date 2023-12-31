@@ -1,2 +1,3 @@
-## Projeto feito durante a Trilha de React da DIO.
-### Clone da página de Login da plataforma. 
+# Projeto - Trilha de React DIO 
+
+Clone da página inicial da plataforma, tela de login e feed. Usando Styled Components, React Hook Form e Axios. 
