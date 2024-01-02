@@ -7,7 +7,7 @@ export const InputContainer = styled.div`
     border-bottom: 1px solid #3B3450;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 `
 
 export const IconContainer = styled.div`
@@ -23,4 +23,6 @@ export const InputText = styled.input`
 export const ErrorText = styled.p`
     color: #FF0000;
     font-size: 12px;
+    margin-bottom: 20px;
+    font-family: 'Open Sans';
 `

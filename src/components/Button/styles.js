@@ -16,6 +16,7 @@ export const ButtonContainer = styled.button`
         min-width: 167px;
         height: 33px;
         background-color: #E4105D;
+        margin: 1rem 0;
 
         &:hover{
             opacity: .8;

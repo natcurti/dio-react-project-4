@@ -14,7 +14,7 @@ const schema = yup
     email: yup.string().required('Campo Obrigatório').email('Este email não é válido'),
     password: yup.string().required('Campo Obrigatório').min(3, 'No mínimo 3 caracteres'),
   })
-  .required()
+  .required();
 
 
 const Login = () => {
@@ -30,13 +30,11 @@ const Login = () => {
         try{
             const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.password}`);
 
-            console.log(data);
-
             if(data.length && data[0].id){
                 navigate('/feed');
                 return;
             }
-            alert('Usuário ou senha inválido')
+            alert('Usuário ou senha inválido');
         }catch(e){
             alert('Erro');
         }
