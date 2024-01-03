@@ -3,12 +3,11 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Container, Wrapper, Column, Row, Title, TitleLogin, SubtitleLogin, EsqueciText, CriarText } from './styles';
 import {MdEmail, MdLock} from 'react-icons/md';
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { api } from '../../services/api';
 import { IFormData } from "./types";
+import { useAuth } from "../../hooks/useAuth";
  
 const schema = yup
   .object({
@@ -20,7 +19,7 @@ const schema = yup
 
 const Login = () => {
 
-    const navigate = useNavigate();
+    const {handleLogin} = useAuth();
 
     const {control, handleSubmit, formState: { errors }} = useForm<IFormData>({
         resolver: yupResolver(schema),
@@ -28,17 +27,7 @@ const Login = () => {
     });
     
     const onSubmit = async (formData: IFormData) => {
-        try{
-            const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.password}`);
-
-            if(data.length && data[0].id){
-                navigate('/feed');
-                return;
-            }
-            alert('Usuário ou senha inválido');
-        }catch(e){
-            alert('Erro');
-        }
+        handleLogin(formData);
     };
 
     return (
